@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .nav {
   position: fixed;
@@ -42,30 +42,4 @@
   &.active {
     opacity: 1;
   }
-}
-
-.fab {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -#{$fab-offset};
-  width: $fab-size;
-  height: $fab-size;
-  background-color: $color-background;
-  border-radius: 50%;
-  @include flex-center;
-  box-shadow: $shadow-fab;
-  cursor: pointer;
-  transition: transform $transition-normal, box-shadow $transition-normal;
-  border: none;
-
-  &:hover {
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
-  }
-
-  &:active {
-    transform: translateX(-50%) scale(0.97);
-  }
-
 }

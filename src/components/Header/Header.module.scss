@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .header {
   position: fixed;
@@ -20,6 +20,10 @@
   max-width: $max-width-desktop;
   margin: 0 auto;
   justify-content: flex-end;
+
+  @include desktop {
+    justify-content: space-between;
+  }
 }
 
 .avatar {

@@ -1,3 +1,4 @@
+import { useAdaptive } from '@/hooks/useAdaptive';
 import { Tag } from '../Tag/Tag';
 import styles from './Card.module.scss';
 
@@ -10,6 +11,8 @@ interface CardProps {
 }
 
 export function Card({ imageUrl, date, tags, onClick }: CardProps) {
+  const { isDesktop } = useAdaptive();
+
   return (
     <article className={styles.card} onClick={onClick}>
       {imageUrl ? (
@@ -20,7 +23,7 @@ export function Card({ imageUrl, date, tags, onClick }: CardProps) {
       <p className={styles.date}>{date}</p>
       <div className={styles.tags}>
         {tags.map((tag, i) => (
-          <Tag key={i} label={tag} size="small" />
+          <Tag key={i} label={tag} size={isDesktop ? 'large' : 'small'} />
         ))}
       </div>
     </article>

@@ -1,12 +1,20 @@
-import { Home, List, Shuffle, Settings, Plus } from 'lucide-react';
+import { Home, List, Shuffle, Settings } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import styles from './BottomNavigation.module.scss';
+import { useAdaptive } from '@/hooks/useAdaptive';
+import { CreatePostButton } from '../CreatePostButton';
 
 export function BottomNavigation() {
   const navigate = useNavigate();
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const { isDesktop } = useAdaptive();
+
+  if (isDesktop) {
+    return null;
+  }
 
   return (
     <nav className={styles.nav}>
@@ -46,9 +54,7 @@ export function BottomNavigation() {
         </div>
       </div>
 
-      <button className={styles.fab} onClick={() => navigate('/create')} aria-label="Create post">
-        <Plus size={60} color="#6B7A6F" />
-      </button>
+      <CreatePostButton />
     </nav>
   );
 }

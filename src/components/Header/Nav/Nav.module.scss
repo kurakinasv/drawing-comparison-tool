@@ -1,0 +1,18 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
+
+.nav {
+  @include flex-center;
+  gap: $space-8;
+}
+
+.navList {
+  @include flex-center;
+  gap: $space-8;
+
+  li a {
+    @include h2;
+    color: $color-background;
+  }
+}

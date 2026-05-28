@@ -5,6 +5,8 @@ import styles from './HomePage.module.scss';
 import img1 from '@/assets/mona.png';
 import img2 from '@/assets/frieren-2.png';
 import img3 from '@/assets/frieren-1.png';
+import { useAdaptive } from '@/hooks/useAdaptive';
+import { CreatePostButton } from '@/components/CreatePostButton';
 
 const MOCK_POSTS = [
   { id: '1', imageUrl: img1, date: '1 декабря 2025', tags: ['Тег'] },
@@ -14,6 +16,7 @@ const MOCK_POSTS = [
 
 export function HomePage() {
   const navigate = useNavigate();
+  const { isDesktop } = useAdaptive();
 
   return (
     <section className={styles.page}>
@@ -30,6 +33,7 @@ export function HomePage() {
           />
         ))}
       </div>
+      {isDesktop && <CreatePostButton />}
     </section>
   );
 }

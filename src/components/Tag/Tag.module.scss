@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .tag {
   @include flex-center;
@@ -23,5 +23,11 @@
 .small {
   padding: 2px 12px;
   font-size: $font-size-caption;
+  border-radius: $radius-md;
+}
+
+.large {
+  padding: 6px 18px;
+  font-size: $font-size-lg;
   border-radius: $radius-md;
 }

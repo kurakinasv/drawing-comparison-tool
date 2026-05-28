@@ -4,6 +4,7 @@ import { BottomNavigation } from '@/components/BottomNavigation/BottomNavigation
 import styles from './AppLayout.module.scss';
 
 export function AppLayout() {
+
   return (
     <div className={styles.layout}>
       <Header />

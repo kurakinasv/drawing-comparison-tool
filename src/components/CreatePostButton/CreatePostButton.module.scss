@@ -1,0 +1,47 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.fab {
+  width: $fab-size;
+  height: $fab-size;
+
+  background-color: $color-background;
+  border-radius: 50%;
+  @include flex-center;
+  box-shadow: $shadow-fab;
+  cursor: pointer;
+  transition:
+    transform $transition-normal,
+    box-shadow $transition-normal;
+
+  @include mobile {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -#{$fab-offset};
+
+    &:hover {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: translateX(-50%) scale(0.97);
+    }
+  }
+
+  @include desktop {
+    position: fixed;
+    bottom: $space-12;
+    right: $space-12;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}
