@@ -1,0 +1,26 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex-col;
+  gap: $space-8;
+}
+
+.title {
+  font-family: $font-family;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: #2b2b2b;
+  line-height: normal;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px $space-4;
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px $space-4;
+  }
+}

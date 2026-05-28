@@ -1,0 +1,74 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex-col;
+  gap: $space-6;
+}
+
+.content {
+  @include flex-col;
+  gap: $space-4;
+  width: 100%;
+}
+
+.comparison {
+  @include flex-col;
+  gap: $space-6;
+}
+
+.notes {
+  @include flex-col;
+  gap: $space-4;
+  width: 100%;
+}
+
+.noteInput {
+  display: flex;
+  gap: $space-2;
+  align-items: center;
+  width: 100%;
+}
+
+.inputWrapper {
+  flex: 1;
+}
+
+.addNoteBtn {
+  @include button-reset;
+  @include flex-center;
+  @include focus-ring;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: $color-primary;
+  color: $color-background;
+  flex-shrink: 0;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.noteItem {
+  @include flex-col;
+  gap: $space-2;
+  width: 100%;
+}
+
+.noteTitle {
+  font-family: $font-family;
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: #2b2b2b;
+  line-height: normal;
+}
+
+.noteText {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: 400;
+  color: #2b2b2b;
+  line-height: 1.5;
+}

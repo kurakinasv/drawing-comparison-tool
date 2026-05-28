@@ -1,0 +1,54 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.page {
+  @include flex-col;
+  @include flex-center;
+  gap: $space-12;
+  min-height: 60vh;
+}
+
+.card {
+  @include flex-col;
+  gap: $space-12;
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  font-family: $font-family;
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: #2b2b2b;
+  text-align: center;
+  line-height: normal;
+}
+
+.fields {
+  @include flex-col;
+  gap: $space-6;
+}
+
+.buttons {
+  @include flex-col;
+  gap: $space-4;
+}
+
+.footer {
+  @include flex-center;
+  gap: $space-2;
+  font-family: $font-family;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.link {
+  color: $color-primary;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}

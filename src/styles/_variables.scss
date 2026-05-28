@@ -1,0 +1,58 @@
+// Colors
+$color-background: #F7F5F2;
+$color-primary: #6B7A6F;
+$color-secondary-accent: #6B7F8E;
+$color-text-main: #2E2E2E;
+$color-text-secondary: #6D6D6D;
+$color-border: #C8CEC9;
+$color-header-bg: #ABBAAC;
+$color-surface: #ffffff;
+$color-placeholder: #7a7a7a;
+
+// Spacing (base unit 8px)
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-7: 28px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+
+// Border radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 14px;
+$radius-xl: 24px;
+$radius-full: 9999px;
+
+// Layout
+$max-width-desktop: 1280px;
+$mobile-padding: 16px;
+$header-height: 73px;
+$bottom-nav-height: 91px;
+$fab-size: 88px;
+$fab-offset: 34px;
+
+// Typography
+$font-family: 'Open Sans', sans-serif;
+$font-size-caption: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 22px;
+
+// Breakpoints
+$breakpoint-mobile: 1024px;
+$breakpoint-desktop: 1025px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 250ms ease;
+$transition-slow: 300ms ease;
+
+// Shadows
+$shadow-fab: 0px 4px 12px rgba(0, 0, 0, 0.25);
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);

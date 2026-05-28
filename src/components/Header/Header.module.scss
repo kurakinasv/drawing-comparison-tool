@@ -1,0 +1,44 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: $header-height;
+  background-color: $color-header-bg;
+  @include flex-between;
+  padding: 0 $space-5;
+  max-width: 100%;
+}
+
+.content {
+  @include flex-center;
+  width: 100%;
+  max-width: $max-width-desktop;
+  margin: 0 auto;
+  justify-content: flex-end;
+}
+
+.avatar {
+  @include flex-center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-xl;
+  background-color: $color-primary;
+  color: white;
+  cursor: pointer;
+  transition: opacity $transition-fast;
+  border: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}

@@ -1,0 +1,71 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: $bottom-nav-height;
+  background-color: $color-primary;
+}
+
+.icons {
+  position: absolute;
+  inset: 0;
+  @include flex-between;
+  padding: 0 $space-6;
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+}
+
+.iconButton {
+  @include button-reset;
+  @include focus-ring;
+  color: $color-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity $transition-fast;
+  border-radius: $radius-sm;
+  padding: 4px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.fab {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -#{$fab-offset};
+  width: $fab-size;
+  height: $fab-size;
+  background-color: $color-background;
+  border-radius: 50%;
+  @include flex-center;
+  box-shadow: $shadow-fab;
+  cursor: pointer;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+  border: none;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateX(-50%) scale(0.97);
+  }
+
+}
