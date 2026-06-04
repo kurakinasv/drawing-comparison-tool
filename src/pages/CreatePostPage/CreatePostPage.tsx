@@ -2,13 +2,23 @@ import { useNavigate } from 'react-router';
 import { Plus } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
 import styles from './CreatePostPage.module.scss';
+import { useAdaptive } from '@/hooks/useAdaptive';
 
 export function CreatePostPage() {
   const navigate = useNavigate();
 
+  const { isDesktop } = useAdaptive();
+
   return (
     <section className={styles.page}>
-      <h1 className={styles.title}>Новая запись</h1>
+      <div className={styles.header}>
+        {isDesktop && <h1 className={styles.title}>Новая запись</h1>}
+        {!isDesktop && (
+          <Button variant="primary" size="sm" onClick={() => navigate(`/`)}>
+            Отменить
+          </Button>
+        )}
+      </div>
       <div className={styles.wrapper}>
         <div className={styles.content}>
           <div
@@ -36,13 +46,15 @@ export function CreatePostPage() {
         </div>
 
         <div className={styles.buttons}>
-          <Button
-            variant="secondary"
-            className={styles.saveButton}
-            onClick={() => navigate(`/`)}
-          >
-            Отменить
-          </Button>
+          {isDesktop && (
+            <Button
+              variant="secondary"
+              className={styles.saveButton}
+              onClick={() => navigate(`/`)}
+            >
+              Отменить
+            </Button>
+          )}
           <Button
             variant="primary"
             className={styles.saveButton}

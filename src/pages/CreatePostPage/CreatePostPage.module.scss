@@ -7,6 +7,11 @@
   gap: $space-12;
 }
 
+.header {
+  @include flex-col;
+  gap: $space-4;
+}
+
 .wrapper {
   @include flex-col;
   gap: $space-6;
@@ -131,7 +136,13 @@
 
 .buttons {
   @include flex-center;
-  gap: $space-6;
+  @include flex-col;
+  gap: $space-4;
+
+  @include desktop {
+    gap: $space-6;
+    flex-direction: row;
+  }
 }
 
 .saveButton {
