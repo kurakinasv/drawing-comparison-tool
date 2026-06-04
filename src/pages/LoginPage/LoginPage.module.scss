@@ -1,5 +1,6 @@
 @use "@/styles/variables" as *;
 @use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
 
 .page {
   @include flex-col;
@@ -12,16 +13,12 @@
   @include flex-col;
   gap: $space-12;
   width: 100%;
-  max-width: 400px;
+  max-width: 628px;
 }
 
 .title {
-  font-family: $font-family;
-  font-size: $font-size-xl;
-  font-weight: 700;
-  color: #2b2b2b;
-  text-align: center;
-  line-height: normal;
+  @include h1;
+  color: $color-text-main;
 }
 
 .fields {
@@ -37,14 +34,14 @@
 .footer {
   @include flex-center;
   gap: $space-2;
-  font-family: $font-family;
-  font-size: $font-size-sm;
+
+  @include caption;
   color: $color-text-secondary;
 }
 
 .link {
   color: $color-primary;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: opacity $transition-fast;
 

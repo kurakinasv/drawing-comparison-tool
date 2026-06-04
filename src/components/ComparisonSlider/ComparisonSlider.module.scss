@@ -1,5 +1,6 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
 
 .container {
   position: relative;
@@ -9,6 +10,10 @@
   user-select: none;
   touch-action: none;
   cursor: ew-resize;
+
+  @include desktop {
+    height: max(50vh, 500px);
+  }
 }
 
 .image {
@@ -34,7 +39,7 @@
   box-shadow: $shadow-fab;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 0;
@@ -46,7 +51,7 @@
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -65,11 +70,8 @@
 }
 
 .date {
-  font-family: $font-family;
-  font-size: $font-size-lg;
-  font-weight: 700;
+  @include h2;
   color: $color-secondary-accent;
-  line-height: normal;
 }
 
 .arrow {

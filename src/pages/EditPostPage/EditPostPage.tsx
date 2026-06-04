@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router';
 import { Plus } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
-import styles from './CreatePostPage.module.scss';
+import styles from './EditPostPage.module.scss';
 
-export function CreatePostPage() {
+export function EditPostPage() {
   const navigate = useNavigate();
 
   return (
     <section className={styles.page}>
-      <h1 className={styles.title}>Новая запись</h1>
+      <h1 className={styles.title}>Редактирование записи</h1>
       <div className={styles.wrapper}>
         <div className={styles.content}>
           <div

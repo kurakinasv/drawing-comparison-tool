@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .wrapper {
   position: relative;
@@ -28,6 +28,12 @@
 
   &:focus {
     border-color: #556059;
+  }
+
+  @include desktop {
+    height: 62px;
+    padding: 18px 24px;
+    font-size: $font-size-lg;
   }
 }
 

@@ -26,9 +26,12 @@ export function CompareResultPage() {
 
   return (
     <section className={styles.page}>
-      <Button variant="secondary" onClick={() => navigate(-1)}>
-        Назад
-      </Button>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Сравнение</h1>
+        <Button variant="primary" size="sm" onClick={() => navigate(-1)}>
+          Назад
+        </Button>
+      </div>
 
       <div className={styles.content}>
         <div className={styles.comparison}>
@@ -50,12 +53,14 @@ export function CompareResultPage() {
             </button>
           </div>
 
-          {MOCK_NOTES.map((note) => (
-            <article key={note.id} className={styles.noteItem}>
-              <h3 className={styles.noteTitle}>{note.title}</h3>
-              <p className={styles.noteText}>{note.text}</p>
-            </article>
-          ))}
+          <div className={styles.notesList}>
+            {MOCK_NOTES.map((note) => (
+              <article key={note.id} className={styles.noteItem}>
+                <h3 className={styles.noteTitle}>{note.title}</h3>
+                <p className={styles.noteText}>{note.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

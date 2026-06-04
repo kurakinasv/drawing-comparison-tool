@@ -1,21 +1,42 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
 
 .page {
   @include flex-col;
   gap: $space-6;
+
+  @include desktop {
+    gap: $space-12;
+  }
 }
 
 .wrapper {
   @include flex-col;
   gap: $space-6;
   align-items: center;
+
+  @include desktop {
+    gap: 80px;
+  }
 }
 
 .content {
   @include flex-col;
   gap: $space-4;
   width: 100%;
+
+  @include desktop {
+    @include flex-between;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 120px;
+  }
+}
+
+.tagsWithText {
+  @include flex-col;
+  gap: $space-4;
 }
 
 .image {
@@ -24,6 +45,13 @@
   object-fit: contain;
   background-color: rgba($color-primary, 0.3);
   display: block;
+
+  @include desktop {
+    min-height: 262px;
+    height: auto;
+    max-height: 50vh;
+    aspect-ratio: 627 / 492;
+  }
 }
 
 .imagePlaceholder {
@@ -37,15 +65,18 @@
   flex-wrap: wrap;
   gap: $space-2;
   align-items: center;
+
+  @include desktop {
+    gap: $space-4;
+  }
 }
 
 .addTagBtn {
   @include button-reset;
   @include focus-ring;
   @include flex-center;
-  width: 28px;
-  height: 28px;
-  border-radius: $radius-lg;
+  @include square(28px);
+  border-radius: $radius-full;
   background-color: $color-primary;
   color: $color-background;
   transition: opacity $transition-fast;
@@ -53,16 +84,17 @@
   &:hover {
     opacity: 0.85;
   }
+
+  @include desktop {
+    @include square(32px);
+  }
 }
 
 .text {
-  font-family: $font-family;
-  font-size: $font-size-base;
-  font-weight: 400;
-  color: #2b2b2b;
-  line-height: 1.6;
+  @include body;
+  color: $color-text-main;
 }
 
 .editButton {
-  width: 191px;
+  width: 196px;
 }

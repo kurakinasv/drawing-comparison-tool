@@ -14,33 +14,40 @@ const MOCK_CONTENT = {
 
 export function ViewPostPage() {
   const navigate = useNavigate();
-  const { id } = useParams();
 
-  void id;
+  const params = useParams();
+  const id = params.id;
 
   return (
     <section className={styles.page}>
-      <Button variant="secondary" onClick={() => navigate('/')}>
+      <Button variant="primary" size="sm" onClick={() => navigate('/')}>
         Назад
       </Button>
 
       <div className={styles.wrapper}>
         <div className={styles.content}>
-          <img src={MOCK_CONTENT.imageUrl} alt="Post" className={styles.image} />
-
-          <div className={styles.tags}>
-            {MOCK_CONTENT.tags.map((tag, i) => (
-              <Tag key={i} label={tag} />
-            ))}
-            <button className={styles.addTagBtn} aria-label="Add tag">
-              <Plus size={20} />
-            </button>
+          <img
+            src={MOCK_CONTENT.imageUrl}
+            alt="Post"
+            className={styles.image}
+          />
+          <div className={styles.tagsWithText}>
+            <div className={styles.tags}>
+              {MOCK_CONTENT.tags.map((tag, i) => (
+                <Tag key={i} label={tag} />
+              ))}
+              <button className={styles.addTagBtn} aria-label="Add tag">
+                <Plus size={20} />
+              </button>
+            </div>
+            <p className={styles.text}>{MOCK_CONTENT.text}</p>
           </div>
-
-          <p className={styles.text}>{MOCK_CONTENT.text}</p>
         </div>
-
-        <Button variant="primary" className={styles.editButton} onClick={() => navigate(`/create`)}>
+        <Button
+          variant="primary"
+          className={styles.editButton}
+          onClick={() => navigate(`/edit/${id}`)}
+        >
           Редактировать
         </Button>
       </div>

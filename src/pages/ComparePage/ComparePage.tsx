@@ -2,9 +2,28 @@ import { useNavigate } from 'react-router';
 import { Button } from '../../components/Button/Button';
 import { Input } from '../../components/Input/Input';
 import styles from './ComparePage.module.scss';
+import { useState } from 'react';
+import { Spinner } from '@/components/Spinner';
 
 export function ComparePage() {
   const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onCompareClick = async () => {
+    setIsLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    navigate('/compare/result');
+    setIsLoading(false);
+  };
+
+  if (isLoading) {
+    return (
+      <section className={styles.spinner}>
+        <Spinner />
+      </section>
+    );
+  }
 
   return (
     <section className={styles.page}>
@@ -19,7 +38,7 @@ export function ComparePage() {
         <Button
           variant="primary"
           className={styles.compareButton}
-          onClick={() => navigate('/compare/result')}
+          onClick={onCompareClick}
         >
           Сравнить
         </Button>

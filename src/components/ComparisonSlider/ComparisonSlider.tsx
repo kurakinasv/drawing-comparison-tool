@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { ArrowLeftRight } from 'lucide-react';
 import styles from './ComparisonSlider.module.scss';
+import { useAdaptive } from '@/hooks/useAdaptive';
 
 interface ComparisonSliderProps {
   imageBefore: string;
@@ -9,10 +10,16 @@ interface ComparisonSliderProps {
   dateAfter: string;
 }
 
-export function ComparisonSlider({ imageBefore, imageAfter, dateBefore, dateAfter }: ComparisonSliderProps) {
+export function ComparisonSlider({
+  imageBefore,
+  imageAfter,
+  dateBefore,
+  dateAfter,
+}: ComparisonSliderProps) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+  const { isDesktop } = useAdaptive();
 
   const updatePosition = useCallback((clientX: number) => {
     if (!containerRef.current) return;
@@ -27,7 +34,9 @@ export function ComparisonSlider({ imageBefore, imageAfter, dateBefore, dateAfte
     dragging.current = true;
     updatePosition(e.clientX);
 
-    const onMove = (ev: MouseEvent) => { if (dragging.current) updatePosition(ev.clientX); };
+    const onMove = (ev: MouseEvent) => {
+      if (dragging.current) updatePosition(ev.clientX);
+    };
     const onUp = () => {
       dragging.current = false;
       window.removeEventListener('mousemove', onMove);
@@ -42,7 +51,9 @@ export function ComparisonSlider({ imageBefore, imageAfter, dateBefore, dateAfte
     dragging.current = true;
     updatePosition(e.touches[0].clientX);
 
-    const onMove = (ev: TouchEvent) => { if (dragging.current) updatePosition(ev.touches[0].clientX); };
+    const onMove = (ev: TouchEvent) => {
+      if (dragging.current) updatePosition(ev.touches[0].clientX);
+    };
     const onEnd = () => {
       dragging.current = false;
       window.removeEventListener('touchmove', onMove);
@@ -92,7 +103,7 @@ export function ComparisonSlider({ imageBefore, imageAfter, dateBefore, dateAfte
       <div className={styles.dates}>
         <span className={styles.date}>{dateBefore}</span>
         <span className={styles.arrow}>
-          <ArrowLeftRight size={20} color="#6B7F8E" />
+          <ArrowLeftRight size={isDesktop ? 28 : 20} />
         </span>
         <span className={styles.date}>{dateAfter}</span>
       </div>

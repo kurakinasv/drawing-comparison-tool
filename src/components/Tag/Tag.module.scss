@@ -4,12 +4,9 @@
 .tag {
   @include flex-center;
   display: inline-flex;
-  padding: 5px 14px;
-  border-radius: $radius-md;
   background-color: $color-secondary-accent;
   color: $color-background;
   font-family: $font-family;
-  font-size: $font-size-sm;
   font-weight: 400;
   white-space: nowrap;
   line-height: normal;
@@ -17,6 +14,17 @@
 
   &:hover {
     opacity: 0.85;
+  }
+}
+
+.default {
+  padding: 5px 14px;
+  font-size: $font-size-sm;
+  border-radius: $radius-md;
+
+  @include desktop {
+    padding: 6px 18px;
+    font-size: $font-size-lg;
   }
 }
 

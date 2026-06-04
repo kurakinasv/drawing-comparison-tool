@@ -1,0 +1,30 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+@use "@/styles/typography" as *;
+
+.spinner {
+  @include flex-col;
+  @include flex-center;
+  gap: $space-4;
+  margin: auto;
+}
+
+.icon {
+  animation: spin 1s linear infinite;
+  color: $color-primary;
+}
+
+.title {
+  @include h1;
+  font-size: 28px;
+  color: $color-primary;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

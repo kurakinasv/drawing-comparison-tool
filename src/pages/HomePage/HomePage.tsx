@@ -12,6 +12,9 @@ const MOCK_POSTS = [
   { id: '1', imageUrl: img1, date: '1 декабря 2025', tags: ['Тег'] },
   { id: '2', imageUrl: img2, date: '1 декабря 2025', tags: ['Тег'] },
   { id: '3', imageUrl: img3, date: '1 декабря 2025', tags: ['Тег'] },
+  { id: '4', imageUrl: img1, date: '1 декабря 2025', tags: ['Тег'] },
+  { id: '5', imageUrl: img2, date: '1 декабря 2025', tags: ['Тег'] },
+  { id: '6', imageUrl: img3, date: '1 декабря 2025', tags: ['Тег'] },
 ];
 
 export function HomePage() {

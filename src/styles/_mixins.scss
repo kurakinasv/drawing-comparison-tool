@@ -72,3 +72,8 @@
   font-family: $font-family;
   line-height: normal;
 }
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}

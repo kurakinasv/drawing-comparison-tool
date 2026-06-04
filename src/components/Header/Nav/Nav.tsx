@@ -14,7 +14,7 @@ const Nav: React.FC = () => {
           <Link to="/compare">Сравнение работ</Link>
         </li>
         <li>
-          <Link to="/settings">Настройки</Link>
+          <Link to="/">Настройки</Link>
         </li>
       </ul>
     </nav>

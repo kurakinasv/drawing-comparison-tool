@@ -3,11 +3,12 @@ import styles from './Button.module.scss';
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary';
   fullWidth?: boolean;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
+  size?: 'sm' | 'md';
 }
 
 export function Button({
@@ -17,11 +18,13 @@ export function Button({
   onClick,
   type = 'button',
   className = '',
+  size = 'md',
 }: ButtonProps) {
   const classes = [
     styles.button,
     styles[variant],
     fullWidth ? styles.fullWidth : '',
+    size ? styles[size] : '',
     className,
   ]
     .filter(Boolean)
