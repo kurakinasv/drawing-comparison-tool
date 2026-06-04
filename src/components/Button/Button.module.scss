@@ -24,6 +24,12 @@
   &:active {
     transform: scale(0.97);
   }
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+  }
 }
 
 .primary {

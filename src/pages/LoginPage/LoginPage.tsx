@@ -6,52 +6,75 @@ import { useState } from 'react';
 
 export function LoginPage() {
   const navigate = useNavigate();
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleRedirect = () => {
     navigate('/');
   };
 
-  const handleSetRegister = () => {
-    setIsLogin(false);
+  const handleEmailChange = (value: string) => {
+    setEmail(value);
   };
 
-  const handleSetLogin = () => {
-    setIsLogin(true);
+  const handlePasswordChange = (value: string) => {
+    setPassword(value);
   };
+
+  const handleConfirmPasswordChange = (value: string) => {
+    setConfirmPassword(value);
+  };
+
+  const isDisabled = !email || !password;
 
   return (
     <section className={styles.page}>
-      <h1 className={styles.title}>
-        {isLogin ? 'Войти' : 'Зарегистрироваться'}
-      </h1>
+      <h1 className={styles.title}>{isLogin ? 'Войти' : 'Регистрация'}</h1>
 
       <div className={styles.card}>
         <div className={styles.fields}>
-          <Input placeholder="Электронная почта" />
-          <Input placeholder="Пароль" />
-          {!isLogin && <Input placeholder="Повторите пароль" />}
+          <Input
+            placeholder="Электронная почта"
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <Input
+            placeholder="Пароль"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          {!isLogin && (
+            <Input
+              placeholder="Повторите пароль"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+            />
+          )}
         </div>
 
         <div className={styles.buttons}>
-          <Button variant="primary" fullWidth onClick={handleRedirect}>
+          <Button
+            variant="primary"
+            fullWidth
+            onClick={handleRedirect}
+            disabled={isDisabled}
+          >
             {isLogin ? 'Войти' : 'Зарегистрироваться'}
           </Button>
 
           {isLogin && (
             <div className={styles.footer}>
               <span>Нет аккаунта?</span>
-              <span className={styles.link} onClick={handleSetRegister}>
-                Зарегистрироваться
-              </span>
+              <span className={styles.link}>Зарегистрироваться</span>
             </div>
           )}
           {!isLogin && (
             <div className={styles.footer}>
               <span>Уже есть аккаунт?</span>
-              <button className={styles.link} onClick={handleSetLogin}>
-                Войти
-              </button>
+              <button className={styles.link}>Войти</button>
             </div>
           )}
         </div>

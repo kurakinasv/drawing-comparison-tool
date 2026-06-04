@@ -9,6 +9,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   size?: 'sm' | 'md';
+  disabled?: boolean;
 }
 
 export function Button({
@@ -19,6 +20,7 @@ export function Button({
   type = 'button',
   className = '',
   size = 'md',
+  disabled = false,
 }: ButtonProps) {
   const classes = [
     styles.button,
@@ -31,7 +33,12 @@ export function Button({
     .join(' ');
 
   return (
-    <button type={type} className={classes} onClick={onClick}>
+    <button
+      type={type}
+      className={classes}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
