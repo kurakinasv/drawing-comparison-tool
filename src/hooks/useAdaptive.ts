@@ -1,4 +1,4 @@
-import { useIsMobile } from '@/components/ui/use-mobile';
+import { useIsMobile } from './useMobile';
 
 export const useAdaptive = () => {
   const isMobile = useIsMobile();
